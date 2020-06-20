@@ -3,14 +3,20 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new configuration
+    // Create a new category
     router.post("/", categories.create);
   
-    // Retrieve all configurations
+    // Retrieve all categories
     router.get("/", categories.findAll);
+
+    // Retrieve a single category with id
+    router.get("/:id", categories.findOne);
   
-    // Update a configurations with id
+    // Update a category with id
     router.put("/:id", categories.update);
+
+    // Delete a category with id
+    router.delete("/:id", categories.delete);
 
     app.use('/api/categories', router);
   };

@@ -41,6 +41,22 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+  
+    Category.findById(id)
+      .then(data => {
+        if (!data)
+          res.status(404).send({ message: "Not found Category with id " + id });
+        else res.send(data);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .send({ message: "Error retrieving Category with id=" + id });
+      });
+  };
+
 exports.update = (req, res) => {
     if (!req.body) {
         return res.status(400).send({
@@ -64,3 +80,25 @@ exports.update = (req, res) => {
             });
         });
 };
+
+exports.delete = (req, res) => {
+    const id = req.params.id;
+  
+    Category.findByIdAndRemove(id)
+      .then(data => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot delete Category with id=${id}. Maybe Area was not found!`
+          });
+        } else {
+          res.send({
+            message: "Category was deleted successfully!"
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Category with id=" + id
+        });
+      });
+  };

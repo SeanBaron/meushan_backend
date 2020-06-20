@@ -1,6 +1,5 @@
 const db = require("../models");
 const Area = db.areas;
-// const City = db.cities;
 
 exports.create = (req, res) => {
     // Validate request
