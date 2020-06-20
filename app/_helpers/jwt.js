@@ -12,7 +12,7 @@ function jwt() {
             { url: '/api/configurations', methods: ['GET'] },
             { url: '/api/deliverydays', methods: ['GET'] },
             { url: '/api/orders', methods: ['POST'] },
-            { url: '/api/packagetypes', methods: ['GET'] },
+            // { url: '/api/packagetypes', methods: ['GET'] },
             { url: '/api/areas', methods: ['GET'] },
             { url: '/api/areas', methods: ['POST'] },
             { url: '/api/categories', methods: ['GET'] },

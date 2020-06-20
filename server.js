@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/delivaryDay.routes")(app);
-require("./app/routes/packageType.routes")(app);
+// require("./app/routes/packageType.routes")(app);
 require("./app/routes/order.routes")(app);
 require("./app/routes/configuration.routes")(app);
 require("./app/routes/area.routes")(app);
